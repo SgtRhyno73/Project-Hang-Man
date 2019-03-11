@@ -175,4 +175,10 @@ def main():
 |   | |
 |
 ---------
-''',
+''')
+
+        print(HANGMAN[0])
+        attempts = len(HANGMAN) - 1
+
+
+        while (attempts != 0 and "-" in word_guessed):
