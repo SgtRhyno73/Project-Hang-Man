@@ -182,3 +182,8 @@ def main():
 
 
         while (attempts != 0 and "-" in word_guessed):
+            print(("\nYou have {} attempts remaining").format(attempts))
+            joined_word = "".joined(word_guessed)
+            print(joined_word)
+
+            try:
