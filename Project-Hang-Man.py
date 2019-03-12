@@ -3,10 +3,11 @@
 # 3.7.19
 
 
-'''This
-is my Final Project for CSSE which is Project-Hang-Man and it is just like normal hang-man.  when start is clicked
-the game will chose a random word that you put in the word bank.  The way to win is guess the correct letters without
-doing harm to the stick-man.'''
+#  This
+#  is my Final Project for Computer Science and Software Engineering which is Project-Hang-Man and it is just like
+#  normal hang-man.  when the code is activated
+#  the game will chose a random word that you put in the word bank.  The way to win is guess the correct letters without
+#  doing harm to the stick-man.
 
 
 import random
@@ -37,12 +38,12 @@ def main():
                  ]
 
         chosen_word = random.choice(words).lower()
-        player_guess = None # will hold the players guess
-        guessed_letters = [] # a list of letters guessed so far
+        player_guess = None  # will hold the players guess
+        guessed_letters = []  # a list of letters guessed so far
         word_guessed = []
         for letter in chosen_word:
-            word_guessed.append("-") # create an unguessed, blank version of the word
-        joined_word = None # joins the words in the list word_guessed
+            word_guessed.append("-")  # create an unguessed, blank version of the word
+        joined_word = None  # joins the words in the list word_guessed
 
         HANGMAN = (
 '''
@@ -188,17 +189,17 @@ def main():
 
             try:
                 player_guess = str(input("\nPlease select a letter between A-Z" + "\n> ")).lower()
-            except: # check valid input
+            except:  # check valid input
                 print("That is not valid input. Please try again.")
                 continue                
             else: 
-                if not player_guess.isalpha(): # check the input is a letter. Also checks an input has been made.
+                if not player_guess.isalpha():  # check the input is a letter. Also checks an input has been made.
                     print("That is not a letter. Please try again.")
                     continue
                 elif len(player_guess) > 1: # check the input is only one letter
                     print("That is more than one letter. Please try again.")
                     continue
-                elif player_guess in guessed_letters: # check it letter hasn't been guessed already
+                elif player_guess in guessed_letters:  # check it letter hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
                     continue
                 else:
@@ -208,7 +209,8 @@ def main():
 
             for letter in range(len(chosen_word)):
                 if player_guess == chosen_word[letter]:
-                    word_guessed[letter] = player_guess # replace all letters in the chosen word that match the players guess
+                    word_guessed[letter] = player_guess
+                    #  replace all letters in the chosen word that match the players guess
 
             if player_guess not in chosen_word:
                 attempts -= 1
@@ -220,3 +222,9 @@ def main():
             print(("\nUnlucky! The word was {}.").format(chosen_word))
 
         print("\nWould you like to play again?")
+        response = input("> ").lower()
+        if response not in ("yes", "y"):
+            play_again = False
+
+if __name__ == "__name__":
+    main()
