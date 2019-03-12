@@ -210,7 +210,7 @@ def main():
 
             for letter in range(len(chosen_word)):
                 if player_guess == chosen_word[letter]:
-                    word_guessed[letter] = player_guess  #  replace all letters in the chosen word that match the players guess
+                    word_guessed[letter] = player_guess  # replace all letters in the chosen word that match the players guess
 
             if player_guess not in chosen_word:
                 attempts -= 1
