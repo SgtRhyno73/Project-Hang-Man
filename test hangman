@@ -1,7 +1,10 @@
-
-game = input("do you want numbers or letters?: ")
+game = ("do you want numbers or letters?: ")
 if game == "letters":
-    import random
+"""Hangman
+Standard game of Hangman. A word is chosen at random from a list and the
+user must guess the word letter by letter before running out of attempts."""
+
+import random
 
 def main():
     welcome = ['Welcome to Hangman! A word will be chosen at random and',
@@ -38,160 +41,148 @@ def main():
 
         HANGMAN = (
 """
-------
-|    |
-|
-|
-|
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|
-|
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|    |
-|
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-
-|
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-
-|  |
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  |
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  |   |
-|
-|
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|   
-|   
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|    | 
-|   
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|    | 
-|   | 
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|    | 
-|   | 
+-----
 |   |
 |
----------
+|
+|
+|
+|
+|
+|
+--------
 """,
 """
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|    | 
-|   | |
+-----
+|   |
+|  ( )
+|
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+|   |
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
 |   | 
 |
----------
+|
+|
+|
+--------
 """,
 """
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|    | 
-|   | |
-|   | |
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
 |
----------
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  |
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  | | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | |
+|   | 
+|  | | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  | | 
+|  | | 
+|
+--------
 """)
 
         print(HANGMAN[0])
@@ -207,8 +198,8 @@ def main():
                 player_guess = str(input("\nPlease select a letter between A-Z" + "\n> ")).lower()
             except: # check valid input
                 print("That is not valid input. Please try again.")
-                continue
-            else:
+                continue                
+            else: 
                 if not player_guess.isalpha(): # check the input is a letter. Also checks an input has been made.
                     print("That is not a letter. Please try again.")
                     continue
@@ -242,18 +233,23 @@ def main():
         if response not in ("yes", "y"):
             play_again = False
 
-if game == "letters":
+if __name__ == "__main__":
     main()
 
 
 elif game == "numbers":
-    import random
 
-def main2():
+"""Hangman
+Standard game of Hangman. A word is chosen at random from a list and the
+user must guess the word letter by letter before running out of attempts."""
+
+import random
+
+def main():
     welcome = ['Welcome to Hangman! A word will be chosen at random and',
-                 'you must try to guess the word correctly letter by letter',
-                 'before you run out of attempts. Good luck!'
-                 ]
+               'you must try to guess the word correctly letter by letter',
+               'before you run out of attempts. Good luck!'
+               ]
 
     for line in welcome:
         print(line)
@@ -265,220 +261,163 @@ def main2():
     while play_again:
         # set up the game loop
 
-        numbers = ["10", "15",
-                   "2019", "2018", "2003", "21",
-                   "69", "420",
-                   "360", "720", "16",
-                   "4"
+        numbers = [
 
 
-                   ]
+                 ]
 
         chosen_number = random.choice(numbers).lower()
-        player_guess_number = None  # will hold the players guess
-        guessed_numbers = []  # a list of letters guessed so far
+        player_guess_number = None # will hold the players guess
+        guessed_numbers = [] # a list of letters guessed so far
         number_guessed = []
-        for numbers in chosen_number:
-            number_guessed.append("-")  # create an unguessed, blank version of the word
+        for letter in chosen_number:
+            number_guessed.append("-") # create an unguessed, blank version of the word
         joined_number = None # joins the words in the list word_guessed
 
         HANGMAN = (
 """
-------
-|    |
-|
-|
-|
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|
-|
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|    |
-|
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-
-|
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-
-|  |
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  |
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  |   |
-|
-|
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|   
-|   
-|
-<<<<<<< HEAD
-|
-=======
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-<<<<<<< HEAD
-|    | 
-|   
-|
-|
-=======
-|   | 
-|   
-|
->>>>>>> master
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-<<<<<<< HEAD
-|    | 
-|   | 
-|
-|
----------
-""",
-"""
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-|    | 
-|   | 
+-----
 |   |
-=======
-|   | 
-|   | 
->>>>>>> master
 |
----------
+|
+|
+|
+|
+|
+|
+--------
 """,
 """
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-<<<<<<< HEAD
-|    | 
-=======
->>>>>>> master
-|   | |
-|   | 
+-----
+|   |
+|  ( )
 |
----------
+|
+|
+|
+|
+|
+--------
 """,
 """
-------
-|    |
-|   ( )
-|  /-+-\ 
-|  | | |
-<<<<<<< HEAD
-|    | 
-=======
->>>>>>> master
-|   | |
-|   | |
+-----
+|   |
+|  ( )
+|   |
 |
----------
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  |
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  | | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | |
+|   | 
+|  | | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|  ( )
+| /-+-\ 
+|   | 
+|   | 
+|  | | 
+|  | | 
+|
+--------
 """)
 
         print(HANGMAN[0])
@@ -492,14 +431,14 @@ def main2():
 
             try:
                 player_guess_number = str(input("\nPlease select a number between 0-9" + "\n> ")).lower()
-            except:  # check valid input
+            except: # check valid input
                 print("That is not valid input. Please try again.")
-                continue
-            else:
-                if not player_guess_number.isdigit(): # check the input is a number. Also checks an input has been made.
+                continue                
+            else: 
+                if not player_guess_number.isnumeric(): # check the input is a number. Also checks an input has been made.
                     print("That is not a number. Please try again.")
                     continue
-                elif len(player_guess_number) > 10: # check the input is only one number
+                elif len(player_guess_number) > 1: # check the input is only one number
                     print("That is more than one number. Please try again.")
                     continue
                 elif player_guess_number in guessed_numbers: # check it number hasn't been guessed already
@@ -519,9 +458,9 @@ def main2():
                 print(HANGMAN[(len(HANGMAN) - 1) - attempts])
 
         if "-" not in number_guessed: # no blanks remaining
-            print(("\nCongratulations! {} was the word").format(chosen_number))
+            print(("\nCongratulations! {} was the word").format(chosen_word))
         else: # loop must have ended because attempts reached 0
-            print(("\nUnlucky! The word was {}.").format(chosen_number))
+            print(("\nUnlucky! The word was {}.").format(chosen_word))
 
         print("\nWould you like to play again?")
 
@@ -529,7 +468,8 @@ def main2():
         if response not in ("yes", "y"):
             play_again = False
 
-if game == "numbers":
-    main2()
+if __name__ == "__main__":
+    main()
+
 else:
-    print("I said pick numbers or letters!: ")
+print("I said pick numbers or letters!: ")
