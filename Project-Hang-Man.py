@@ -1,5 +1,5 @@
 
-game = input("do you want numbers or letters?: ")
+game = input("do you want numbers or letters or animals?: ")
 if game == "letters":
     import random
 
@@ -492,3 +492,250 @@ if game == "numbers":
     main2()
 else:
     print("I said pick numbers or letters!: ")
+
+elif game == "animals":
+    import random
+
+def main3():
+    welcome = ['Welcome to Hangman! A animal will be chosen at random and',
+                 'you must try to guess the animal correctly letter by letter',
+                 'before you run out of attempts. Good luck!'
+                 ]
+
+    for line in welcome:
+        print(line)
+
+    # setting up the play_again loop
+
+    play_again = True
+
+    while play_again:
+        # set up the game loop
+
+        animals = ["cat", "dog",
+                   "fox", "hamster", "bear", "honey badger",
+                   "seal", "lizard",
+                   "gecko", "blue whale", "tiger",
+                   "spiders"
+
+
+                   ]
+
+        chosen_animals = random.choice(animals).lower()
+        player_guess_animal = None  # will hold the players guess
+        guessed_animals = []  # a list of letters guessed so far
+        animal_guessed = []
+        for animals in chosen_animals:
+            animal_guessed.append("-")  # create an unguessed, blank version of the word
+        joined_animals = None # joins the words in the list word_guessed
+
+        HANGMAN = (
+"""
+------
+|    |
+|
+|
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|    |
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-
+|  |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  |   |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|   
+|   
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | 
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | 
+|   |
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | |
+|   | 
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | |
+|   | |
+|
+---------
+""")
+
+        print(HANGMAN[0])
+        attempts = len(HANGMAN) - 1
+
+
+        while (attempts != 0 and "-" in animal_guessed):
+            print(("\nYou have {} attempts remaining").format(attempts))
+            joined_animals = "".join(animal_guessed)
+            print(joined_animals)
+
+            try:
+                player_guess_animal = str(input("\nPlease select a animal" + "\n> ")).lower()
+            except:  # check valid input
+                print("That is not valid input. Please try again.")
+                continue
+            else:
+                if not player_guess_animal.isalpha(): # check the input is a number. Also checks an input has been made.
+                    print("That is not a letter. Please try again.")
+                    continue
+                elif len(player_guess_animal) > 1: # check the input is only one number
+                    print("That is more than one letter. Please try again.")
+                    continue
+                elif player_guess_animal in guessed_animals: # check it number hasn't been guessed already
+                    print("You have already guessed that letter. Please try again.")
+                    continue
+                else:
+                    pass
+
+            guessed_animals.append(player_guess_animal)
+
+            for animals in range(len(chosen_animal)):
+                if player_guess_animal == chosen_animal[animals]:
+                    animal_guessed[animals] = player_guess_animal # replace all numbers in the chosen word that match your guess
+
+            if player_guess_animal not in chosen_animal:
+                attempts -= 1
+                print(HANGMAN[(len(HANGMAN) - 1) - attempts])
+
+        if "-" not in animal_guessed: # no blanks remaining
+            print(("\nCongratulations! {} was the animal").format(chosen_animal))
+        else: # loop must have ended because attempts reached 0
+            print(("\nUnlucky! The animal was {}.").format(chosen_animal))
+
+        print("\nWould you like to play again?")
+
+        response = input("> ").lower()
+        if response not in ("yes", "y"):
+            play_again = False
+
+if game == "animals":
+    main3()
+else:
+    print("I said pick numbers or letters or animals!: ")
