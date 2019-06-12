@@ -1,5 +1,5 @@
 
-game = input("do you want numbers or letters or animals?: ")
+game = input("do you want numbers or letters or animals 0r food?: ")
 if game == "letters":
     import random
 
@@ -490,10 +490,9 @@ def main2():
 
 if game == "numbers":
     main2()
-else:
-    print("I said pick numbers or letters!: ")
 
-elif game == "animals":
+
+if game == "animals":
     import random
 
 def main3():
@@ -697,7 +696,7 @@ def main3():
             print(joined_animals)
 
             try:
-                player_guess_animal = str(input("\nPlease select a animal" + "\n> ")).lower()
+                player_guess_animal = str(input("\nPlease guess a animal" + "\n> ")).lower()
             except:  # check valid input
                 print("That is not valid input. Please try again.")
                 continue
@@ -716,18 +715,18 @@ def main3():
 
             guessed_animals.append(player_guess_animal)
 
-            for animals in range(len(chosen_animal)):
-                if player_guess_animal == chosen_animal[animals]:
+            for animals in range(len(chosen_animals)):
+                if player_guess_animal == chosen_animals[animals]:
                     animal_guessed[animals] = player_guess_animal # replace all numbers in the chosen word that match your guess
 
-            if player_guess_animal not in chosen_animal:
+            if player_guess_animal not in chosen_animals:
                 attempts -= 1
                 print(HANGMAN[(len(HANGMAN) - 1) - attempts])
 
         if "-" not in animal_guessed: # no blanks remaining
-            print(("\nCongratulations! {} was the animal").format(chosen_animal))
+            print(("\nCongratulations! {} was the animal").format(chosen_animals))
         else: # loop must have ended because attempts reached 0
-            print(("\nUnlucky! The animal was {}.").format(chosen_animal))
+            print(("\nUnlucky! The animal was {}.").format(chosen_animals))
 
         print("\nWould you like to play again?")
 
@@ -737,5 +736,7 @@ def main3():
 
 if game == "animals":
     main3()
-else:
-    print("I said pick numbers or letters or animals!: ")
+
+
+"bacon", "cookies", "cake", "candy", "brownies", "chocolate",
+                "kitkat", "twix", "chicken", "popcornchicken", "wafflefries",
