@@ -1,5 +1,5 @@
 
-game = input("do you want numbers or letters or animals 0r food?: ")
+game = input("do you want numbers or letters or animals 0r food or sports?: ")
 if game == "letters":
     import random
 
@@ -737,6 +737,487 @@ def main3():
 if game == "animals":
     main3()
 
+if game == "food":
+    import random
 
-"bacon", "cookies", "cake", "candy", "brownies", "chocolate",
+def main4():
+    welcome = ['Welcome to Hangman! A food item will be chosen at random and',
+                 'you must try to guess the food item correctly letter by letter',
+                 'before you run out of attempts. Good luck!'
+                 ]
+
+    for line in welcome:
+        print(line)
+
+    # setting up the play_again loop
+
+    play_again = True
+
+    while play_again:
+        # set up the game loop
+
+        food = ["bacon", "cookies", "cake", "candy", "brownies", "chocolate",
                 "kitkat", "twix", "chicken", "popcornchicken", "wafflefries",
+
+
+                   ]
+
+        chosen_food = random.choice(food).lower()
+        player_guess_food = None  # will hold the players guess
+        guessed_food= []  # a list of letters guessed so far
+        food_guessed = []
+        for food in chosen_food:
+            food_guessed.append("-")  # create an unguessed, blank version of the word
+        joined_food = None # joins the words in the list word_guessed
+
+        HANGMAN = (
+"""
+------
+|    |
+|
+|
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|    |
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-
+|  |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  |   |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|   
+|   
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | 
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | 
+|   |
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | |
+|   | 
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | |
+|   | |
+|
+---------
+""")
+
+        print(HANGMAN[0])
+        attempts = len(HANGMAN) - 1
+
+
+        while (attempts != 0 and "-" in food_guessed):
+            print(("\nYou have {} attempts remaining").format(attempts))
+            joined_food = "".join(food_guessed)
+            print(joined_food)
+
+            try:
+                player_guess_food = str(input("\nPlease guess a food item" + "\n> ")).lower()
+            except:  # check valid input
+                print("That is not valid input. Please try again.")
+                continue
+            else:
+                if not player_guess_food.isalpha(): # check the input is a number. Also checks an input has been made.
+                    print("That is not a letter. Please try again.")
+                    continue
+                elif len(player_guess_food) > 1: # check the input is only one number
+                    print("That is more than one letter. Please try again.")
+                    continue
+                elif player_guess_food in guessed_food: # check it number hasn't been guessed already
+                    print("You have already guessed that letter. Please try again.")
+                    continue
+                else:
+                    pass
+
+            guessed_food.append(player_guess_food)
+
+            for food in range(len(chosen_food)):
+                if player_guess_food == chosen_food[food]:
+                    food_guessed[food] = player_guess_food # replace all numbers in the chosen word that match your guess
+
+            if player_guess_food not in chosen_food:
+                attempts -= 1
+                print(HANGMAN[(len(HANGMAN) - 1) - attempts])
+
+        if "-" not in food_guessed: # no blanks remaining
+            print(("\nCongratulations! {} was the food item").format(chosen_food))
+        else: # loop must have ended because attempts reached 0
+            print(("\nUnlucky! The food item was {}.").format(chosen_food))
+
+        print("\nWould you like to play again?")
+
+        response = input("> ").lower()
+        if response not in ("yes", "y"):
+            play_again = False
+
+if game == "food":
+    main4()
+
+if game == "sports":
+    import random
+
+def main5():
+    welcome = ['Welcome to Hangman! A sport will be chosen at random and',
+                 'you must try to guess the sport correctly letter by letter',
+                 'before you run out of attempts. Good luck!'
+                 ]
+
+    for line in welcome:
+        print(line)
+
+    # setting up the play_again loop
+
+    play_again = True
+
+    while play_again:
+        # set up the game loop
+
+        sports = [
+
+
+                   ]
+
+        chosen_sports = random.choice(sports).lower()
+        player_guess_sports = None  # will hold the players guess
+        guessed_sports = []  # a list of letters guessed so far
+        sports_guessed = []
+        for sports in chosen_sports:
+            sports_guessed.append("-")  # create an unguessed, blank version of the word
+        joined_sports = None # joins the words in the list word_guessed
+
+        HANGMAN = (
+"""
+------
+|    |
+|
+|
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|    |
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-
+|
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-
+|  |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  |   |
+|
+|
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|   
+|   
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | 
+|
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | 
+|   |
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | |
+|   | 
+|
+---------
+""",
+"""
+------
+|    |
+|   ( )
+|  /-+-\ 
+|  | | |
+|    | 
+|   | |
+|   | |
+|
+---------
+""")
+
+        print(HANGMAN[0])
+        attempts = len(HANGMAN) - 1
+
+
+        while (attempts != 0 and "-" in sports_guessed):
+            print(("\nYou have {} attempts remaining").format(attempts))
+            joined_sports = "".join(sports_guessed)
+            print(joined_sports)
+
+            try:
+                player_guess_sports = str(input("\nPlease guess a sport" + "\n> ")).lower()
+            except:  # check valid input
+                print("That is not valid input. Please try again.")
+                continue
+            else:
+                if not player_guess_sports.isalpha(): # check the input is a number. Also checks an input has been made.
+                    print("That is not a letter. Please try again.")
+                    continue
+                elif len(player_guess_sports) > 1: # check the input is only one number
+                    print("That is more than one letter. Please try again.")
+                    continue
+                elif player_guess_sports in guessed_sports: # check it number hasn't been guessed already
+                    print("You have already guessed that letter. Please try again.")
+                    continue
+                else:
+                    pass
+
+            guessed_sports.append(player_guess_sports)
+
+            for sports in range(len(chosen_sports)):
+                if player_guess_sports == chosen_sports[sports]:
+                    sports_guessed[sports] = player_guess_sports # replace all numbers in the chosen word that match your guess
+
+            if player_guess_sports not in chosen_sports:
+                attempts -= 1
+                print(HANGMAN[(len(HANGMAN) - 1) - attempts])
+
+        if "-" not in food_guessed: # no blanks remaining
+            print(("\nCongratulations! {} was the sport").format(chosen_sports))
+        else: # loop must have ended because attempts reached 0
+            print(("\nUnlucky! The sport was {}.").format(chosen_sports))
+
+        print("\nWould you like to play again?")
+
+        response = input("> ").lower()
+        if response not in ("yes", "y"):
+            play_again = False
+
+if game == "sports":
+    main5()
+
+
