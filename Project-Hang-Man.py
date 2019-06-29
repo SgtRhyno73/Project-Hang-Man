@@ -998,7 +998,10 @@ def main5():
     while play_again:
         # set up the game loop
 
-        sports = [
+        sports = [¨archery¨, ¨boxing¨, ¨fencing¨, ¨tennis¨,
+                  ¨track and field¨, ¨soccer¨, ¨pole vault¨, 
+                  ¨gymnastics¨, ¨badminton¨, ¨ice hockey¨, ¨football¨, 
+                  ¨volleyball¨, ¨baseball¨, ¨basketball¨, ¨martial arts¨,
 
 
                    ]
