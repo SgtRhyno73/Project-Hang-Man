@@ -1248,13 +1248,13 @@ def main6():
 
                    ]
 
-        chosen_sports = random.choice(sports).lower()
-        player_guess_sports = None  # will hold the players guess
-        guessed_sports = []  # a list of letters guessed so far
-        sports_guessed = []
-        for sports in chosen_sports:
-            sports_guessed.append("-")  # create an unguessed, blank version of the word
-        joined_sports = None # joins the words in the list word_guessed
+        chosen_systems = random.choice(systems).lower()
+        player_guess_systems = None  # will hold the players guess
+        guessed_systems = []  # a list of letters guessed so far
+        systems_guessed = []
+        for systems in chosen_systems:
+            systems_guessed.append("-")  # create an unguessed, blank version of the word
+        joined_systems = None # joins the words in the list word_guessed
 
         HANGMAN = (
 """
@@ -1418,43 +1418,43 @@ def main6():
         attempts = len(HANGMAN) - 1
 
 
-        while (attempts != 0 and "-" in sports_guessed):
+        while (attempts != 0 and "-" in systems_guessed):
             print(("\nYou have {} attempts remaining").format(attempts))
-            joined_sports = "".join(sports_guessed)
-            print(joined_sports)
+            joined_systems = "".join(sysytems_guessed)
+            print(joined_systems)
 
             try:
-                player_guess_sports = str(input("\nPlease guess a sport" + "\n> ")).lower()
+                player_guess_systems = str(input("\nPlease guess a game system" + "\n> ")).lower()
             except:  # check valid input
                 print("That is not valid input. Please try again.")
                 continue
             else:
-                if not player_guess_sports.isalpha(): # check the input is a number. Also checks an input has been made.
+                if not player_guess_systems.isalpha(): # check the input is a number. Also checks an input has been made.
                     print("That is not a letter. Please try again.")
                     continue
-                elif len(player_guess_sports) > 1: # check the input is only one number
+                elif len(player_guess_systems) > 1: # check the input is only one number
                     print("That is more than one letter. Please try again.")
                     continue
-                elif player_guess_sports in guessed_sports: # check it number hasn't been guessed already
+                elif player_guess_systems in guessed_systems: # check it number hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
                     continue
                 else:
                     pass
 
-            guessed_sports.append(player_guess_sports)
+            guessed_systems.append(player_guess_systems)
 
-            for sports in range(len(chosen_sports)):
-                if player_guess_sports == chosen_sports[sports]:
-                    sports_guessed[sports] = player_guess_sports # replace all numbers in the chosen word that match your guess
+            for systems in range(len(chosen_systems)):
+                if player_guess_systems == chosen_systems[systems]:
+                    systems_guessed[system] = player_guess_systems # replace all numbers in the chosen word that match your guess
 
-            if player_guess_sports not in chosen_sports:
+            if player_guess_systems not in chosen_systems:
                 attempts -= 1
                 print(HANGMAN[(len(HANGMAN) - 1) - attempts])
 
-        if "-" not in food_guessed: # no blanks remaining
-            print(("\nCongratulations! {} was the sport").format(chosen_sports))
+        if "-" not in systems_guessed: # no blanks remaining
+            print(("\nCongratulations! {} was the systems").format(chosen_systems))
         else: # loop must have ended because attempts reached 0
-            print(("\nUnlucky! The sport was {}.").format(chosen_sports))
+            print(("\nUnlucky! The system was {}.").format(chosen_systems))
 
         print("\nWould you like to play again?")
 
@@ -1462,7 +1462,7 @@ def main6():
         if response not in ("yes", "y"):
             play_again = False
 
-if game == "sports":
-    main5()
+if game == "systems":
+    main6()
 
 
