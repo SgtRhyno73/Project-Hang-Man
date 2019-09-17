@@ -999,7 +999,7 @@ def main5():
         # set up the game loop
 
         sports = [¨archery¨, ¨boxing¨, ¨fencing¨, ¨tennis¨,
-                  ¨track and field¨, ¨soccer¨, ¨pole vault¨, 
+                  ¨track¨, ¨field¨, ¨soccer¨, ¨pole vault¨, 
                   ¨gymnastics¨, ¨badminton¨, ¨ice hockey¨, ¨football¨, 
                   ¨volleyball¨, ¨baseball¨, ¨basketball¨, ¨martial arts¨,
 
