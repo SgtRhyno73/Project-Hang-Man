@@ -1,5 +1,5 @@
 
-game = input("do you want numbers or letters or animals 0r food or sports?: ")
+game = input("do you want numbers or letters or animals 0r food or sports or game systems?: ")
 if game == "letters":
     import random
 
@@ -1462,7 +1462,7 @@ def main6():
         if response not in ("yes", "y"):
             play_again = False
 
-if game == "systems":
+if game == "game systems":
     main6()
 
 
