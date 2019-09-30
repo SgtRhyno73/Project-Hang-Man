@@ -20,9 +20,9 @@ def main():
         # set up the game loop
 
         words = ["ninjas", "Destiny", "IT",
-                 "Games", "TransFormers", "StephenKing", "food",
+                 "Games", "StephenKing", "food",
                  "TheFlash", "NationalLampoonsChristmasVacation", "sleep",
-                 "movies","Barneythepurpledinosuar","football", "martialarts",
+                 "movies","Barneythepurpledinosuar", "martialarts",
                  "deadpool"
 
 
@@ -266,10 +266,10 @@ def main2():
         # set up the game loop
 
         numbers = ["10", "15",
-                   "2019", "2018", "2003", "21",
+                   "2019", "2020", "2003", "21",
                    "69", "420",
                    "360", "720", "16",
-                   "4"
+                   "4", "27", "2022", 
 
 
                    ]
@@ -512,9 +512,9 @@ def main3():
         # set up the game loop
 
         animals = ["cat", "dog",
-                   "fox", "hamster", "bear", "honey badger",
+                   "fox", "hamster", "bear", "honeybadger",
                    "seal", "lizard",
-                   "gecko", "blue whale", "tiger",
+                   "gecko", "bluewhale", "tiger",
                    "spiders"
 
 
@@ -998,10 +998,10 @@ def main5():
     while play_again:
         # set up the game loop
 
-        sports = [¨archery¨, ¨boxing¨, ¨fencing¨, ¨tennis¨,
-                  ¨track¨, ¨field¨, ¨soccer¨, ¨pole vault¨, 
-                  ¨gymnastics¨, ¨badminton¨, ¨ice hockey¨, ¨football¨, 
-                  ¨volleyball¨, ¨baseball¨, ¨basketball¨, ¨martial arts¨,
+        sports = ["archery", "boxing", "fencing", "tennis",
+                  "track", "field", "soccer", "pole vault", 
+                  "gymnastics", "badminton", "ice hockey", "football", 
+                  "volleyball", "baseball", "basketball", "martial arts",
 
 
                    ]
