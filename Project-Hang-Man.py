@@ -1420,7 +1420,7 @@ def main6():
 
         while (attempts != 0 and "-" in systems_guessed):
             print(("\nYou have {} attempts remaining").format(attempts))
-            joined_systems = "".join(sysytems_guessed)
+            joined_systems = "".join(systems_guessed)
             print(joined_systems)
 
             try:
@@ -1445,7 +1445,7 @@ def main6():
 
             for systems in range(len(chosen_systems)):
                 if player_guess_systems == chosen_systems[systems]:
-                    systems_guessed[system] = player_guess_systems # replace all numbers in the chosen word that match your guess
+                    systems_guessed[systems] = player_guess_systems # replace all numbers in the chosen word that match your guess
 
             if player_guess_systems not in chosen_systems:
                 attempts -= 1
