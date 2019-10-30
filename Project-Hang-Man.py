@@ -1,5 +1,5 @@
 
-game = input("do you want to guess numbers or letters or animals or food or sports or game systems?: ")
+game = input("Welcome to the game of hangman\nhow you play hang-man is tpye one\nof these categories exactly how\nit is and the game will start so\nyou can guess numbers, letters,\nanimals, food, sports or game systems?: ")
 if game == "letters":
     import random
 
@@ -32,6 +32,7 @@ def main():
         player_guess = None # will hold the players guess
         guessed_letters = [] # a list of letters guessed so far
         word_guessed = []
+        guessed_letter = len(words) * ['_']
         for letter in chosen_word:
             word_guessed.append("-") # create an unguessed, blank version of the word
         joined_word = None # joins the words in the list word_guessed
@@ -217,6 +218,9 @@ def main():
                     continue
                 elif player_guess in guessed_letters: # check it letter hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
+                    if letter == guessed_letters:
+                            guessed_letters[position] = guessed_letters
+                    print(' '.join(guessed_letters))
                     continue
                 else:
                     pass
@@ -278,6 +282,7 @@ def main2():
         player_guess_number = None  # will hold the players guess
         guessed_numbers = []  # a list of letters guessed so far
         number_guessed = []
+        guessed_number = len(numbers) * ['_']
         for numbers in chosen_number:
             number_guessed.append("-")  # create an unguessed, blank version of the word
         joined_number = None # joins the words in the list word_guessed
@@ -463,6 +468,9 @@ def main2():
                     continue
                 elif player_guess_number in guessed_numbers: # check it number hasn't been guessed already
                     print("You have already guessed that number. Please try again.")
+                    if number == guessed_numbers:
+                            guessed_numbers[position] = guessed_numbers
+                    print(' '.join(guessed_numbers))
                     continue
                 else:
                     pass
@@ -524,6 +532,7 @@ def main3():
         player_guess_animal = None  # will hold the players guess
         guessed_animals = []  # a list of letters guessed so far
         animal_guessed = []
+        guessed_animal = len(animals) * ['_']
         for animals in chosen_animals:
             animal_guessed.append("-")  # create an unguessed, blank version of the word
         joined_animals = None # joins the words in the list word_guessed
@@ -709,6 +718,9 @@ def main3():
                     continue
                 elif player_guess_animal in guessed_animals: # check it number hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
+                    if animals == guessed_animals:
+                            guessed_animals[position] = guessed_animals
+                    print(' '.join(guessed_animals))
                     continue
                 else:
                     pass
@@ -766,6 +778,7 @@ def main4():
         player_guess_food = None  # will hold the players guess
         guessed_food= []  # a list of letters guessed so far
         food_guessed = []
+        guess_food = len(food) * ['_']
         for food in chosen_food:
             food_guessed.append("-")  # create an unguessed, blank version of the word
         joined_food = None # joins the words in the list word_guessed
@@ -951,6 +964,9 @@ def main4():
                     continue
                 elif player_guess_food in guessed_food: # check it number hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
+                    if food == guess_food:
+                            guessed_food[position] = guess_food
+                    print(' '.join(guessed_food))
                     continue
                 else:
                     pass
@@ -999,9 +1015,9 @@ def main5():
         # set up the game loop
 
         sports = ["archery", "boxing", "fencing", "tennis",
-                  "track", "field", "soccer", "pole vault", 
-                  "gymnastics", "badminton", "ice hockey", "football", 
-                  "volleyball", "baseball", "basketball", "martial arts",
+                  "track", "field", "soccer", "polevault", 
+                  "gymnastics", "badminton", "icehockey", "football", 
+                  "volleyball", "baseball", "basketball", "martialarts",
 
 
                    ]
@@ -1010,6 +1026,7 @@ def main5():
         player_guess_sports = None  # will hold the players guess
         guessed_sports = []  # a list of letters guessed so far
         sports_guessed = []
+        guessed_sport = len(sports) * ['_']
         for sports in chosen_sports:
             sports_guessed.append("-")  # create an unguessed, blank version of the word
         joined_sports = None # joins the words in the list word_guessed
@@ -1195,6 +1212,9 @@ def main5():
                     continue
                 elif player_guess_sports in guessed_sports: # check it number hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
+                    if sports == guessed_sports:
+                            guessed_sports[position] = guessed_sports
+                    print(' '.join(guessed_sports))
                     continue
                 else:
                     pass
@@ -1209,7 +1229,7 @@ def main5():
                 attempts -= 1
                 print(HANGMAN[(len(HANGMAN) - 1) - attempts])
 
-        if "-" not in food_guessed: # no blanks remaining
+        if "-" not in sports_guessed: # no blanks remaining
             print(("\nCongratulations! {} was the sport").format(chosen_sports))
         else: # loop must have ended because attempts reached 0
             print(("\nUnlucky! The sport was {}.").format(chosen_sports))
@@ -1243,7 +1263,8 @@ def main6():
     while play_again:
         # set up the game loop
 
-        systems = [
+        systems = [ "playstation", "xboxone", "switch",
+        "ds", "wii", "wiiu", "gamecube", "gameboy", "gameboycolor"
 
 
                    ]
@@ -1252,6 +1273,7 @@ def main6():
         player_guess_systems = None  # will hold the players guess
         guessed_systems = []  # a list of letters guessed so far
         systems_guessed = []
+        guessed_system = len(systems) * ['_']
         for systems in chosen_systems:
             systems_guessed.append("-")  # create an unguessed, blank version of the word
         joined_systems = None # joins the words in the list word_guessed
@@ -1437,6 +1459,9 @@ def main6():
                     continue
                 elif player_guess_systems in guessed_systems: # check it number hasn't been guessed already
                     print("You have already guessed that letter. Please try again.")
+                    if systems == guessed_systems:
+                            guessed_systems[position] = guessed_systems
+                    print(' '.join(guessed_systems))
                     continue
                 else:
                     pass
@@ -1464,5 +1489,3 @@ def main6():
 
 if game == "game systems":
     main6()
-
-
